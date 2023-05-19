@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cupcakes</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+    <h1 class="text-center display-3">See All Cupcakes</h1>
+    <ul class="cupcakes-list">
+    </ul>
+
+    <h3>Add a new cupcake!</h3>
+    <form action="" id="new-cupcake-form">
+        <div>
+            <label for="form-flavor">Flavor: </label>
+            <input type="text" id="form-flavor">
+        </div>
+        <div>
+            <label for="form-size">Size: </label>
+            <input type="text" id="form-size">
+        </div>
+        <div>
+            <label for="form-rating">Rating: </label>
+            <input type="text" id="form-flavor">
+        </div>
+        <div>
+            <label for="form-image">Image: </label>
+            <input type="text" id="form-image">
+        </div>
+
+        <button type="submit">Add!</button>
+    </form>
+
+    <script src="https://unpkg.com/jquery"></script>
+    <script src="https://unpkg.com/axios/dist/axios.js"></script>
+    <script src="/static/cupcakes.js"></script>
+</body>
+</html>
