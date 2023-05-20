@@ -60,17 +60,17 @@
 
 // $(showCupcakes);
 
-const BASE_URL = "http://localhost:5000/api";
+const BASE_URL = "http://127.0.0.1:5000/api";
 
 
 /** given data about a cupcake, generate html */
 
 function generateCupcakeHTML(cupcake) {
   return `
-    <div data-cupcake-id=${cupcake.id}>
+    <div data-cupcake-id=${cupcake.id} class="list-group-item list-unstyled">
       <li>
         ${cupcake.flavor} / ${cupcake.size} / ${cupcake.rating}
-        <button class="delete-button">X</button>
+        <button class="delete-button btn-danger">X</button>
       </li>
       <img class="Cupcake-img"
             src="${cupcake.image}"
@@ -87,7 +87,7 @@ async function showInitialCupcakes() {
 
   for (let cupcakeData of response.data.cupcakes) {
     let newCupcake = $(generateCupcakeHTML(cupcakeData));
-    $("#cupcakes-list").append(newCupcake);
+    $(".cupcakes-list").append(newCupcake);
   }
 }
 
@@ -117,10 +117,10 @@ $("#new-cupcake-form").on("submit", async function (evt) {
 
 /** handle clicking delete: delete cupcake */
 
-$("#cupcakes-list").on("click", ".delete-button", async function (evt) {
+$(".cupcakes-list").on("click", ".delete-button", async function (evt) {
   evt.preventDefault();
   let $cupcake = $(evt.target).closest("div");
-  let cupcakeId = $cupcake.attr("data-id");
+  let cupcakeId = $cupcake.attr("data-cupcake-id");
 
   await axios.delete(`${BASE_URL}/cupcakes/${cupcakeId}`);
   $cupcake.remove();
